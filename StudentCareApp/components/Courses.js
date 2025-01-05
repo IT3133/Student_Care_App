@@ -1,3 +1,5 @@
+import {Image, StyleSheet, View, Text} from "react-native";
+
 export default function COurses({user0}){
     return(
         <View style={styles.container}>
