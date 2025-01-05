@@ -1,5 +1,5 @@
 import { Image, ScrollView, View } from "react-native";
-import { Avatar, Card } from "react-native-paper";
+import { Avatar, Card, Divider } from "react-native-paper";
 
 export default function Profile( { user }) {
     return (
@@ -42,3 +42,52 @@ export default function Profile( { user }) {
         </ScrollView>
     );
 }
+
+const styles = StyleSheet.create({
+    scrollContent: {
+        flexGrow:1,
+    },
+    container: {
+        flex:1 ,
+        alignItems: "center",
+        backgroundColor:"#fff",
+        paddingBottom: 30,
+    },
+    banner: {
+        justifyContent: "center",
+        alignItems:"center",
+        marginVertical:10,
+    },
+    image: {
+        width:260,
+        height: 50,
+    },
+    card: {
+        marginVertical: 10,
+        width:"90%",
+        alignSelf:"center"
+    },
+    divider: {
+        height: 1,
+        backgroundColor: "#ccc",
+        marginVertical:15,
+    },
+    footer: {
+        backgroundColor: "#520f4e",
+      width: "100%",
+      alignItems: "center",
+      height: 50,
+      justifyContent: "center",
+    },
+    cardtitletext: {
+      fontSize: 28,
+      marginTop: 10,
+      textAlign: "left",
+    },    
+    nametext: {
+        fontSize: 28,
+        marginTop: 10,
+        textAlign: "center",
+    }, 
+    
+})
