@@ -1,26 +1,26 @@
-import {Image, StyleSheet, View, Text} from "react-native";
+import { Image, StyleSheet, View, Text } from "react-native";
 import { courses } from "../assets/StudentsDb";
 import { Card } from "react-native-paper";
 
-export default function Courses({user}){
-    const userCourse =  courses.find((course) => course.id === user.course_id);
-    return(
+export default function Courses({ user }) {
+    const userCourse = courses.find((course) => course.id === user.course_id);
+    return (
         <View style={styles.container}>
             <View style={styles.banner}>
-                <Image style={styles.image} source={require('../assets/uovlogo.png')}/>
+                <Image style={styles.image} source={require('../assets/uovlogo.png')} />
 
             </View>
 
             <View style={styles.imageCard}>
-                <card style={{backgroundColor:"#ffffff"}}>
+                <card style={{ backgroundColor: "#ffffff" }}>
                     <Card.Content>
                         <Text variant='titleLarge' style={styles.nametext}>
                             {userCourse.name}
                         </Text>
-                        <Text variant='bodyMedium' style={{textAlign:'center'}}>
+                        <Text variant='bodyMedium' style={{ textAlign: 'center' }}>
                             Code: {userCourse.course_code} | Dept: {userCourse.department}                            {userCourse.name}
                         </Text>
-                        <View style={styles.divider}/>
+                        <View style={styles.divider} />
                         <Text variant="titleLarge" style={styles.cardtitletext}>
                             Course Information
                         </Text>
@@ -28,35 +28,35 @@ export default function Courses({user}){
                         <Text variant="bodyMedium">Department:{userCourse.department}</Text>
                         <Text variant="bodyMedium">Duration:{userCourse.duration}</Text>
                         <Text variant="bodyMedium">Description:{userCourse.description}</Text>
-<View style={styles.divider}/>
+                        <View style={styles.divider} />
 
                     </Card.Content>
                 </card>
             </View>
             <View style={styles.footer}>
-                <Text style={{color:"#ffffff"}}>Uov © 2025</Text>
+                <Text style={{ color: "#ffffff" }}>Uov © 2025</Text>
             </View>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-    scrollContent:{
+    scrollContent: {
         flexGrow: 1,
     },
     container: {
-        flex:1 ,
-        alignItems : "center",
+        flex: 1,
+        alignItems: "center",
         backgroundColor: "#fff",
         paddingBottom: 30,
     },
     banner: {
         justifyContent: "center",
-        alignItems:"center",
+        alignItems: "center",
         marginVertical: 10,
     },
-    image:{
-        width:360,
+    image: {
+        width: 360,
         height: 50,
 
     },
@@ -65,29 +65,29 @@ const styles = StyleSheet.create({
         width: "90%",
         alignSelf: "center"
     },
-    divider:{
+    divider: {
         height: 1,
         backgroundColor: '#ccc',
         marginVertical: 15,
     },
     footer: {
-        position : "absolute",
+        position: "absolute",
         bottom: 0,
         backgroundColor: '#520f4e',
-        width:"100%",
+        width: "100%",
         alignContent: "center",
-        height:50,
-        justifyContent:"content", 
+        height: 50,
+        justifyContent: "content",
     },
     cardtitletext: {
-        fontSize:28,
-        marginTop:10,
-        textAlign:"left",
+        fontSize: 28,
+        marginTop: 10,
+        textAlign: "left",
 
     },
-    nametext:{
-        fontSize:28,
-        marginTop:10,
-        textAlign:"center",
+    nametext: {
+        fontSize: 28,
+        marginTop: 10,
+        textAlign: "center",
     },
 });
