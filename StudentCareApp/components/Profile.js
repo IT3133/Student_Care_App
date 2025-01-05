@@ -1,5 +1,6 @@
-import { Image, ScrollView, View } from "react-native";
-import { Avatar, Card, Divider } from "react-native-paper";
+import React from "react";
+import { Image, ScrollView, View ,Text,StyleSheet} from "react-native";
+import { Avatar, Card } from "react-native-paper";
 
 export default function Profile( { user }) {
     return (
