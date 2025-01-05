@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
-import { Button, ScrollView, View } from "react-native";
-import { TextInput } from "react-native-paper";
+import { Button, ScrollView, View, Image, StyleSheet } from "react-native";
+import { PaperProvider,TextInput,Text } from "react-native-paper";
 import { students } from "../assets/StudentsDb";
 
 export default function Login(){
