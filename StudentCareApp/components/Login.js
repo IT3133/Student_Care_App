@@ -23,7 +23,7 @@ export default function Login(){
             setErrorMessage("Provide valid username or password");
         }
     };
-    
+
     return(
         <ScrollView contentContainerStyle={styles.scrollView}>
             <View styles={styles.container}>
@@ -50,3 +50,58 @@ export default function Login(){
         </ScrollView>
     );
 }
+
+const styles = StyleSheet.create({
+    constainer: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "ceneter",
+        backgroundColor: "#fff",
+    },
+    banner: {
+        flex: 1,
+        width: 250,
+        height:65,
+        top:10,
+        position:'absolute',
+    },
+    title: {
+        flex:1
+    },
+    text: {
+        color:"balck"
+    },
+    inputfields: {
+        flex: 1,
+        width: "100%",
+        paddingLeft: 10,
+        paddingRight: 10
+    },
+    buttonText: {
+        color: "white",
+    },
+    button : {
+        marginTop: 5,
+        backgroundColor: "#520f4e"
+    },
+    errorText: {
+        color:"green",
+        marginTop:10,
+        textAlign:"center",
+    },
+    scrollView: {
+        flexGroe: 1,
+    },
+    footer: {
+        flex: 1,
+        bottom: 0,
+        position:"absolute",
+        backgroundColor: "#520f4e",
+        width: "100%",
+        alignItems: "center",
+        height:30
+    },
+    footerText: {
+        color: '#ffffff'
+    }
+});
