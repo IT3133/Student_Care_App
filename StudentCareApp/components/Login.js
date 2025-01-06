@@ -1,107 +1,91 @@
-import { useNavigation } from "@react-navigation/native";
-import { useState } from "react";
-import { Button, ScrollView, View, Image, StyleSheet } from "react-native";
-import { PaperProvider,TextInput,Text } from "react-native-paper";
-import { students } from "../assets/StudentsDb";
+import { Image, StyleSheet, View, Text } from "react-native";
+import { courses } from "../assets/StudentsDb";
+import { Card } from "react-native-paper";
 
-export default function Login(){
-    const navigation = useNavigation();
-    const [username, setUserName] = useState("");
-    const [password,setPassword] = useState("");
-    const [errorMessage,setErrorMessage] = useState("");
+export default function Courses({user}){
     
-    const handleLogin = () => {
-        const user = students.find(
-            (student) => student.username === username && student.password === password
-
-        );
-        if(user) {
-            setErrorMessage("");
-            navigation.navigate('Main',{user});
-
-        }else {
-            setErrorMessage("Provide valid username or password");
-        }
-    };
-
+    const userCourse=courses.find((course) => course.id === user.course_id);
     return(
-        <ScrollView contentContainerStyle={styles.scrollView}>
-            <View styles={styles.container}>
-                <View style = {styles.banner}>
-                    <Image style={styles.image} source={require('../assets/uovlogo.png')}/>
-
-                </View>
-                <View style ={ styles.title}>
-                    <text variant='displayMedium' style={styles.text}>Student Login</text>
-                </View>
-                <View style={styles.inputfields}>
-                    <TextInput label="Username" mode="outlined" activeOutlineColor="#63625b" value={username} onChangeText={setUserName}/>
-                    <TextInput label="Password" mode="outlined" activeOutlineColor="#63625b"  secureTextEntry value={password} onChangeText={setPassword}/>
-                    <Button style={styles.button} mode="contained" onPress={handleLogin} labelStyle={styles.buttonText}>Login</Button>
-                    {errorMessage ?(
-                        <Text style={styles.errorText}>{errorMessage}</Text>
-                    ) : null }
-
-                </View>
-                <View style={styles.footer}>
-                    <Text style={styles.footerText}>UoV © 2025</Text>
-                </View>
+        <View style={styles.container}>
+            <View style={styles.banner}>
+                <Image
+                    style={styles.image}
+                    source={require('../assets/uovlogo.png')}/>
             </View>
-        </ScrollView>
-    );
+            <View style={styles.imageCard}>
+                <Card style={{backgroundColor:"#ffffff"}}>
+                    <Card.Content>
+                        <Text variant="titleLarge" style={styles.nametext}>
+                            {userCourse.name}
+                        </Text>
+                        <Text variant="bodyMedium" style={{textAlign:'center'}}>
+                            Code: {userCourse.course_code} | Dept: {userCourse.department}
+                        </Text>
+                        <View style={styles.divider} />
+                        <Text variant="titleLarge" style={styles.cardtitletext}>
+                            Course Information
+                        </Text>
+                        <Text variant="bodyMedium">Code: {userCourse.course_code}</Text>
+                        <Text variant="bodyMedium">Department: {userCourse.department}</Text>
+                        <Text variant="bodyMedium">Duration: {userCourse.duration}</Text>
+                        <Text variant="bodyMedium">Description: {userCourse.description}</Text>
+                        <View style={styles.divider} />
+                    </Card.Content>
+                </Card>
+            </View>
+            <View style={styles.footer}>
+                <Text style={{color:"#ffffff"}}>UoV © 2025</Text>
+            </View>
+        </View>
+    )
 }
 
 const styles = StyleSheet.create({
-    constainer: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "ceneter",
-        backgroundColor: "#fff",
+    scrollContent: {
+      flexGrow: 1,
+    },
+    container: {
+      flex: 1,
+      alignItems: "center",
+      backgroundColor: "#fff",
+      paddingBottom: 30,
     },
     banner: {
-        flex: 1,
-        width: 250,
-        height:65,
-        top:10,
-        position:'absolute',
+      justifyContent: "center",
+      alignItems: "center",
+      marginVertical: 10,
     },
-    title: {
-        flex:1
+    image: {
+      width: 250,
+      height: 65,
     },
-    text: {
-        color:"balck"
-    },
-    inputfields: {
-        flex: 1,
-        width: "100%",
-        paddingLeft: 10,
-        paddingRight: 10
-    },
-    buttonText: {
-        color: "white",
-    },
-    button : {
-        marginTop: 5,
-        backgroundColor: "#520f4e"
-    },
-    errorText: {
-        color:"green",
-        marginTop:10,
-        textAlign:"center",
-    },
-    scrollView: {
-        flexGroe: 1,
+    card: {
+      marginVertical: 10,
+      width: "90%",
+      alignSelf: "center"
+    },  
+    divider: {
+      height: 1,
+      backgroundColor: "#ccc",
+      marginVertical: 15,
     },
     footer: {
-        flex: 1,
+        position: "absolute",
         bottom: 0,
-        position:"absolute",
         backgroundColor: "#520f4e",
         width: "100%",
         alignItems: "center",
-        height:30
+        height: 50,
+        justifyContent: "center",
     },
-    footerText: {
-        color: '#ffffff'
-    }
-});
+    cardtitletext: {
+      fontSize: 28,
+      marginTop: 10,
+      textAlign: "left",
+    },    
+    nametext: {
+        fontSize: 28,
+        marginTop: 10,
+        textAlign: "center",
+    },
+  });
