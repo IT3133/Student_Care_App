@@ -27,7 +27,7 @@ export default function Subjects({ user }) {
             <View style={styles.banner}>
                 <Image
                     style={styles.image}
-                    source={require('../assets/Logo.png')} />
+                    source={require('../assets/uovlogo.png')} />
             </View>
             <View style={styles.card}>
                 <Card style={{ backgroundColor: "#ffffff" }}>

@@ -1,10 +1,10 @@
 import { NavigationContainer } from '@react-navigation/native';
 import Login from './components/Login';
 import Main from './components/Main';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StyleSheet } from 'react-native';
 import { PaperProvider } from 'react-native-paper';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 export default function App() {
   return (
     <PaperProvider>
